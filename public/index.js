@@ -9,21 +9,22 @@ var config = {
 
   firebase.initializeApp(config);
 
+firebase.auth().languageCode = 'en';
 
 var uname = document.getElementById('user');
-
+var gLogin = document.getElementById('glogin');
+var gLogOut = document.getElementById('glogout');
 
 var provider = new firebase.auth.GoogleAuthProvider();
 
+glogin.addEventListener('click', e=>{
 
-
-
-firebase.auth().signInWithPopup(provider).then(function(result) {
+	firebase.auth().signInWithPopup(provider).then(function(result) {
   // This gives you a Google Access Token. You can use it to access the Google API.
-  var token = result.credential.accessToken;
+  	var token = result.credential.accessToken;
   // The signed-in user info.
-  var user = result.user;
-uname.innerHTML = user
+  	var user = result.user;
+	//console.log(user)
 
   // ...
 }).catch(function(error) {
@@ -36,3 +37,18 @@ uname.innerHTML = user
   var credential = error.credential;
   // ...
 });
+})
+
+gLogOut.addEventListener('click', e=>{
+	firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+}).catch(function(error) {
+  // An error happened.
+});
+})
+
+firebase.auth().onAuthStateChanged(function(user) {
+	uname.innerHTML = user.displayName
+ //console.log(user); // user is undefined if no user signed in
+});
+
