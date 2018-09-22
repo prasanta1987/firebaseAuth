@@ -6,13 +6,29 @@
     <title>Prasanta Karmakar</title>
 
     <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
-	<script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
-	<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
-  </head>
+	<!-- <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+	<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" /> -->
+	
+	<link type="text/css" rel="stylesheet" href="bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="index.css" />
   <body>
-	<h1 id="user"></h1>
-	<button id="glogin">Login With Google</button>
-	<button id="glogout">Log Out</button>
+  
+  
+
+ <nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand"href="#">
+  <img class="rounded-circle" id="ulogo" src="" alt="Logo" style="width:40px;margin-right:20px">
+	<i id="user"></i>
+  </a>  
+  <div class="form-inline">
+    <button class="btn btn-success" id="glogin">Login With Google</button>
+	<button class="btn btn-danger" id="glogout">Log Out</button>
+  </div>
+</nav>
+
+  <div class="container-fluid"></div>  
+
+	
     
     <script src="index.js"></script>
   </body>

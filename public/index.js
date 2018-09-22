@@ -12,6 +12,7 @@ var config = {
 firebase.auth().languageCode = 'en';
 
 var uname = document.getElementById('user');
+var uLogo = document.getElementById('ulogo');
 var gLogin = document.getElementById('glogin');
 var gLogOut = document.getElementById('glogout');
 
@@ -48,7 +49,18 @@ gLogOut.addEventListener('click', e=>{
 })
 
 firebase.auth().onAuthStateChanged(function(user) {
-	uname.innerHTML = user.displayName
- //console.log(user); // user is undefined if no user signed in
+	if(user){
+		uname.innerHTML = user.displayName;
+		userlogo = user.photoURL;
+		uLogo.src = userlogo;
+		console.log(user)
+		gLogin.classList.add('hide')
+		gLogOut.classList.remove('hide');
+	} else {
+		uname.innerHTML = 'Welcome Guest';
+		uLogo.src = '';
+		gLogOut.classList.add('hide');
+		gLogin.classList.remove('hide');
+	}
 });
 
